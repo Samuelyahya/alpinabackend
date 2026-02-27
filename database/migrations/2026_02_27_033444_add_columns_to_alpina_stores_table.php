@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('alpina_stores', function (Blueprint $table) {
-            $table->id();
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('alpina_stores', function (Blueprint $table) {
+            $table->string('name');
+            $table->string('thumbnail')->nullable();
+            $table->text('address');
         });
     }
 
@@ -23,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('alpina_stores');
+        Schema::table('alpina_stores', function (Blueprint $table) {
+            //
+        });
     }
 };

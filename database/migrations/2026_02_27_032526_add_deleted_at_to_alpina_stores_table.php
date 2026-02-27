@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('alpina_stores', function (Blueprint $table) {
-            $table->id();
+        Schema::table('alpina_stores', function (Blueprint $table) {
             $table->softDeletes();
-            $table->timestamps();
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('alpina_stores');
+        Schema::table('alpina_stores', function (Blueprint $table) {
+            //
+        });
     }
 };
