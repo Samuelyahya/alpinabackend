@@ -13,14 +13,12 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/category/{category:slug}', [CategoryController::class, 'show']);
-Route::apiResource('/categories', [CategoryController::class]);
+Route::apiResource('/categories', CategoryController::class);
 
 Route::apiResource('/stores', AlpinaStoreController::class);
 
 Route::get('/vehicles/popular', [VehicleController::class, 'popular']);
 Route::get('/vehicle/{vehicle:slug}', [VehicleController::class, 'show']);
-Route::delete('/vehicle/{vehicle:slug}', [VehicleController::class, 'delete']);
-
 Route::apiResource('/vehicles', VehicleController::class);
 
 Route::apiResource('/testimonials', TestimonialController::class);
